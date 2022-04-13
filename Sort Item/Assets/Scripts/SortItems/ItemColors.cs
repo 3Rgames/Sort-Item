@@ -30,10 +30,17 @@ public class ItemColors : MonoBehaviour
 
             for (int j = 0; j < _item.Skins.Count; j++)
             {
-                if (j == _skinIndex)
-                    _item.Skins[j].gameObject.SetActive(true);
+                if (_item.Skins.Count >= _skinIndex)
+                { 
+                    if (j == _skinIndex)
+                        _item.Skins[j].gameObject.SetActive(true);
+                    else
+                        _item.Skins[j].gameObject.SetActive(false);
+                }
                 else
-                    _item.Skins[j].gameObject.SetActive(false);
+                {
+                    Debug.Log($"Item. Index upper {_item.Skins.Count} ");
+                }
             }
 
             _item.Skins[_skinIndex].GetComponent<ItemSkin>().ChangeColors(_gradient.Evaluate(colorPercent));

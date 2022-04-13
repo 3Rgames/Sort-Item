@@ -50,6 +50,12 @@ public class ShelfController : MonoBehaviour
 
     private void ActivateSkin()
     {
+        if(_skins.Count <= _skinIndex)
+        {
+            Debug.Log($"Shelf. Index upper {_skins.Count} ");
+            return;
+        }
+
         for (int j = 0; j < _skins.Count; j++)
         {
             if (j == _skinIndex)
